@@ -24,8 +24,7 @@
             android:ems="10"
             android:hint="email"
             android:inputType="textEmailAddress"
-            android:singleLine="false"
-            android:text="fede" />
+            android:singleLine="false" />
 
         <EditText
             android:id="@+id/editSavePassword"

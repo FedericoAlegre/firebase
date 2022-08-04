@@ -12,6 +12,11 @@
         <entry key="..\:/Users/fedea/AndroidStudioProjects/firebase/app/src/main/res/layout/fragment_movie.xml" value="0.1" />
         <entry key="..\:/Users/fedea/AndroidStudioProjects/firebase/app/src/main/res/layout/item_catalogo.xml" value="0.22" />
         <entry key="..\:/Users/fedea/AndroidStudioProjects/firebase/app/src/main/res/layout/item_pelicula.xml" value="0.33" />
+        <entry key="..\:/Users/fedec/AndroidStudioProjects/firebase/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/fedec/AndroidStudioProjects/firebase/app/src/main/res/layout/activity_main.xml" value="0.19429347826086957" />
+        <entry key="..\:/Users/fedec/AndroidStudioProjects/firebase/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/fedec/AndroidStudioProjects/firebase/app/src/main/res/layout/fragment_catalogo.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/fedec/AndroidStudioProjects/firebase/app/src/main/res/layout/item_pelicula.xml" value="0.19429347826086957" />
       </map>
     </option>
   </component>

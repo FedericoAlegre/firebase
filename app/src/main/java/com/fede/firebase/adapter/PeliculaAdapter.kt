@@ -3,7 +3,7 @@ package com.fede.firebase.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.fede.firebase.Pelicula
+import com.fede.firebase.models.Pelicula
 import com.fede.firebase.R
 
 class PeliculaAdapter(val PeliculaList:List<Pelicula>): RecyclerView.Adapter<PeliculaViewHolder>(){
