@@ -44,54 +44,22 @@ class CatalogoFragment : Fragment(R.layout.fragment_catalogo) {
         val estrenos = binding.estrenos
         val m = binding.masPeliculas
         populares.layoutManager= LinearLayoutManager(CatalogoFragment().context, RecyclerView.HORIZONTAL, false)
-        getPopulars{ peliculas: List<Pelicula> ->
+        getMovies("movie/popular?api_key=0fed6cae2938bd52048f89173bb9e056&page=1"){ peliculas: List<Pelicula> ->
             populares.adapter= PeliculaAdapter(peliculas)
         }
         estrenos.layoutManager= LinearLayoutManager(CatalogoFragment().context, RecyclerView.HORIZONTAL, false)
-        getNowPlaying { peliculas: List<Pelicula> ->
+        getMovies("movie/now_playing?api_key=0fed6cae2938bd52048f89173bb9e056&page=1"){ peliculas: List<Pelicula> ->
             estrenos.adapter= PeliculaAdapter(peliculas)
 
         }
         m.layoutManager= LinearLayoutManager(CatalogoFragment().context, RecyclerView.HORIZONTAL, false)
-        getTopRated { peliculas: List<Pelicula> ->
+        getMovies("movie/top_rated?api_key=0fed6cae2938bd52048f89173bb9e056&page=1") { peliculas: List<Pelicula> ->
             m.adapter= PeliculaAdapter(peliculas)
         }
     }
-    private fun getPopulars(callback: (List<Pelicula>)-> Unit){
+    private fun getMovies(url:String,callback: (List<Pelicula>)-> Unit){
         val apiService = APIService.getInstance().create<APIServiceI>()
-        apiService.getPopular().enqueue(object : Callback<PeliculaResponse> {
-            override fun onResponse(
-                call: Call<PeliculaResponse>,
-                response: Response<PeliculaResponse>
-            ) {
-                return callback(response.body()!!.movies)
-            }
-
-            override fun onFailure(call: Call<PeliculaResponse>, t: Throwable) {
-
-            }
-
-        })
-    }
-    private fun getTopRated(callback: (List<Pelicula>)-> Unit){
-        val apiService = APIService.getInstance().create<APIServiceI>()
-        apiService.getTopRated().enqueue(object : Callback<PeliculaResponse> {
-            override fun onResponse(
-                call: Call<PeliculaResponse>,
-                response: Response<PeliculaResponse>
-            ) {
-                return callback(response.body()!!.movies)
-            }
-
-            override fun onFailure(call: Call<PeliculaResponse>, t: Throwable) {
-
-            }
-
-        })
-    }
-    private fun getNowPlaying(callback: (List<Pelicula>)-> Unit){
-        val apiService = APIService.getInstance().create<APIServiceI>()
-        apiService.getNowPlaying().enqueue(object : Callback<PeliculaResponse> {
+        apiService.getMovieList(url).enqueue(object : Callback<PeliculaResponse> {
             override fun onResponse(
                 call: Call<PeliculaResponse>,
                 response: Response<PeliculaResponse>
