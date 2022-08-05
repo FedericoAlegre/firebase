@@ -1,7 +1,7 @@
 package com.fede.firebase.models
 
+
 import android.os.Parcelable
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
@@ -14,7 +14,12 @@ data class Pelicula (
     @SerializedName("poster_path")
     val poster: String?,
     @SerializedName("release_date")
-    val release:String?
+    val release:String?,
+    @SerializedName("backdrop_path")
+    val backdropPath: String?,
+    @SerializedName("overview")
+    val overview:String?
     ): Parcelable{
-        constructor(): this("","","","")
+        constructor(): this("","","","", "","")
+
     }

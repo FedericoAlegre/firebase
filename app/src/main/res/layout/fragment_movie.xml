@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MovieFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:layout_height="match_parent">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        tools:context=".MovieFragment">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/ivBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:contentDescription="@string/fondo"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp">
+
+            <ImageView
+                android:id="@+id/ivDetailsPoster"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                tools:src="@tools:sample/avatars"
+                android:contentDescription="@string/poster" />
+
+            <TextView
+                android:id="@+id/tvDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/textview"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDetailsRelease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/textview" />
+
+            <TextView
+                android:id="@+id/tvDetailsOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="75dp"
+                android:text="@string/textview" />
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</ScrollView>

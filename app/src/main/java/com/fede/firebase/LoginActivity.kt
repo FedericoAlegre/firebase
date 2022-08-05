@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.fede.firebase.models.User
 import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
+    companion object{
+        val INTENT_PARCELABLE="OBJECT_INTENT"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -21,10 +25,14 @@ class LoginActivity : AppCompatActivity() {
             val user = db.collection("users").whereEqualTo("email", email.text.toString()).whereEqualTo("password", password.text.toString()).get()
                 .addOnSuccessListener {
                     it?.let {
-                        //it.toObjects(User::class.java)
                         if(it.size() >0){
                             val mainActivity = Intent(this, MainActivity::class.java)
-                            val putExtra = mainActivity.putExtra("USUARIO", it.toString())
+
+                            val user = User(it.documents[0]["email"].toString(),
+                                it.documents[0]["name"].toString(),
+                                it.documents[0]["last"].toString(),
+                                it.documents[0]["password"].toString())
+                           mainActivity.putExtra(INTENT_PARCELABLE, user)
 
                             startActivity(mainActivity)
                         }

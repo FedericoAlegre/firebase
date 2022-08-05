@@ -18,5 +18,9 @@
         android:id="@+id/movieFragment"
         android:name="com.fede.firebase.MovieFragment"
         android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" />
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_movieFragment_to_catalogoFragment"
+            app:destination="@id/catalogoFragment" />
+    </fragment>
 </navigation>
