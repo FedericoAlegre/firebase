@@ -20,6 +20,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
         binding = FragmentProfileBinding.bind(view)
 
@@ -31,7 +32,7 @@ class ProfileFragment : Fragment() {
         //algun dia
         //Glide.with(profile.context).load(data?.profile).into(profile)
         Glide.with(profile.context).load(R.drawable.ic_launcher_foreground).into(profile)
-        userName.text = data?.name
+        userName.text = data?.name+ " "+data?.last
 
 
         return view
